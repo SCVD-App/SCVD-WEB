@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duology · Your stars and numbers, explained</title>
+<meta name="description" content="Duology puts your real birth chart and your numerology side by side, in plain English, and shows you the working. Free to start. Pro is a one-off pass, never a subscription.">
+<meta name="theme-color" content="#0d0d0d">
+<meta property="og:title" content="Duology · Your stars and numbers, explained">
+<meta property="og:description" content="Your real birth chart and your numbers, side by side, in plain English. Free to start.">
+<meta property="og:image" content="https://scvd.app/images/du-chart-pro.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0d0d; --panel:#16151b; --line:rgba(245,243,238,.12); --ink:#f5f3ee; --ink2:rgba(245,243,238,.72); --ink3:rgba(245,243,238,.48);
+    --gold:#C9A84C; --lav:#A9B6FF; --lav-soft:rgba(169,182,255,.14); --rust:#E4A673;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink);font-family:'Josefin Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:600}
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.005em}
+  h2{font-size:clamp(32px,4.4vw,46px);margin-bottom:16px}
+  h3{font-size:26px;margin-bottom:6px}
+  .lede{color:var(--ink2);max-width:640px;font-size:18px}
+  .section{padding:110px 0 0}
+  :focus-visible{outline:2px solid var(--lav);outline-offset:3px;border-radius:4px}
+
+  /* header */
+  .top{position:sticky;top:0;z-index:20;background:rgba(13,13,13,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:.5px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .brand{display:flex;align-items:baseline;gap:12px;text-decoration:none}
+  .wordmark{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:30px;line-height:1}
+  .wordmark em{color:var(--lav);font-style:italic}
+  .brand small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--lav);color:#14131A;font-weight:600;font-size:16px;text-decoration:none;letter-spacing:.01em;transition:transform .15s ease,background .15s ease}
+  .btn:hover{transform:translateY(-1px);background:#bcc6ff}
+  .btn.small{min-height:40px;padding:0 18px;font-size:14px}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(245,243,238,.3)}
+  .btn.ghost:hover{background:rgba(245,243,238,.06)}
+
+  /* hero */
+  .hero{position:relative;padding:72px 0 0;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-120px;left:50%;width:760px;height:760px;transform:translateX(-50%);background:radial-gradient(circle,rgba(169,182,255,.16) 0%,rgba(201,168,76,.06) 40%,rgba(13,13,13,0) 70%);pointer-events:none}
+  .hero .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(44px,6.4vw,74px);margin-bottom:22px}
+  .hero h1 em{color:var(--lav);font-style:italic}
+  .hero .lede{font-size:19px;margin-bottom:30px}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+  .note{font-size:14px;color:var(--ink3);max-width:520px}
+  .hero-phones{position:relative;height:560px}
+  .hero-phones .phone{position:absolute;width:250px}
+  .hero-phones .phone:nth-child(1){left:4%;top:40px;transform:rotate(-5deg)}
+  .hero-phones .phone:nth-child(2){right:4%;top:0;transform:rotate(4deg);z-index:2}
+
+  .phone{border-radius:34px;padding:8px;background:#1d1c23;border:1px solid rgba(245,243,238,.16);box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4)}
+  .phone img{border-radius:27px;width:100%;height:auto;aspect-ratio:585/1200;object-fit:cover;background:#14131A}
+
+  /* from a reel */
+  .reel{margin-top:96px;border:.5px solid var(--line);background:linear-gradient(180deg,rgba(169,182,255,.06),rgba(169,182,255,0));border-radius:22px;padding:34px}
+  .reel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+  .reel-card{background:var(--panel);border:.5px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+  .reel-card b{font-size:16px}
+  .reel-card p{font-size:15px;color:var(--ink2);line-height:1.5;flex:1}
+  .reel-card a{font-size:14px;color:var(--lav);font-weight:600;text-decoration:none}
+  .reel-card a:hover{text-decoration:underline}
+  .signs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .signs a{font-size:13px;padding:5px 10px;border-radius:999px;border:1px solid rgba(169,182,255,.35);color:var(--ink);font-weight:500}
+  .signs a:hover{background:var(--lav-soft);text-decoration:none}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;counter-reset:s}
+  .step{border-top:1px solid var(--line);padding-top:20px}
+  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--gold);color:#0d0d0d;font-weight:600;font-size:15px;margin-bottom:14px}
+  .step p{color:var(--ink2);font-size:16px}
+
+  /* walkthrough */
+  .tier-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+  .tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;font-weight:600}
+  .tag.free{background:rgba(245,243,238,.1);color:var(--ink)}
+  .tag.pro{background:var(--lav);color:#14131A}
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+  .shot figcaption{margin-top:16px}
+  .shot figcaption b{display:block;font-size:16px;margin-bottom:4px}
+  .shot figcaption span{display:block;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .scroll-hint{display:none;font-size:13px;color:var(--ink3);margin-top:-18px;margin-bottom:18px}
+
+  /* compare */
+  .compare{width:100%;border-collapse:collapse;margin-top:30px;font-size:16px}
+  .compare th,.compare td{padding:15px 14px;border-bottom:.5px solid var(--line);text-align:left;vertical-align:top}
+  .compare thead th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+  .compare td:nth-child(2),.compare td:nth-child(3),.compare th:nth-child(2),.compare th:nth-child(3){text-align:center;width:22%}
+  .compare td small{display:block;color:var(--ink3);font-size:13.5px;margin-top:2px}
+  .yes{color:var(--lav);font-weight:600}
+  .part{color:var(--ink2)}
+  .no{color:var(--ink3)}
+
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .plan{position:relative;background:var(--panel);border:.5px solid var(--line);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;gap:6px}
+  .plan.best{border:1.5px solid var(--lav);background:linear-gradient(180deg,rgba(169,182,255,.1),var(--panel) 60%)}
+  .plan .badge{position:absolute;top:-12px;left:24px;background:var(--lav);color:#14131A;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .plan .name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1.1}
+  .plan .len{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .plan .price{font-size:34px;font-weight:600;margin-top:12px;line-height:1}
+  .plan .price small{display:block;font-size:14px;color:var(--ink3);font-weight:400;margin-top:8px}
+  .plan p{font-size:15px;color:var(--ink2);margin-top:6px}
+  .fine{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px;font-size:14.5px;color:var(--ink2)}
+  .fine span::before{content:"✓";color:var(--lav);margin-right:8px;font-weight:600}
+
+  /* privacy + faq */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .panel{background:var(--panel);border:.5px solid var(--line);border-radius:20px;padding:30px}
+  .panel p{color:var(--ink2);font-size:16px;margin-top:10px}
+  details{border-bottom:.5px solid var(--line);padding:18px 0}
+  details summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--lav);font-size:22px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--ink2);font-size:16px;margin-top:10px}
+
+  /* closing */
+  .closing{text-align:center;padding:120px 0 40px}
+  .closing h2{font-size:clamp(38px,5.4vw,60px)}
+  .closing h2 em{color:var(--lav)}
+  .closing .lede{margin:0 auto 30px}
+  .closing .ctas{justify-content:center}
+
+  footer{margin-top:90px;border-top:.5px solid var(--line);padding:34px 0 50px;font-size:14px;color:var(--ink3)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer nav{display:flex;gap:22px;flex-wrap:wrap}
+  footer a{color:var(--ink2);text-decoration:none}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:980px){
+    .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:0 -24px;padding:0 24px 12px;scrollbar-width:none}
+    .gallery::-webkit-scrollbar{display:none}
+    .shot{flex:0 0 62%;max-width:270px;scroll-snap-align:start}
+    .scroll-hint{display:block}
+    .reel-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:820px){
+    .hero .hero-grid{grid-template-columns:1fr}
+    .hero-phones{height:470px;max-width:420px;width:100%;margin:0 auto}
+    .hero-phones .phone{width:205px}
+    .steps,.plans,.two{grid-template-columns:1fr}
+    .plans{gap:22px}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .gallery{margin:0 -16px;padding:0 16px 12px}
+    .shot{flex-basis:72%}
+    .section{padding-top:80px}
+    .hero{padding-top:44px}
+    .hero-phones{height:400px}
+    .hero-phones .phone{width:172px;border-radius:26px;padding:6px}
+    .hero-phones .phone img{border-radius:21px}
+    .reel{padding:24px 18px;margin-top:70px}
+    .reel-grid{grid-template-columns:1fr}
+    .brand small{display:none}
+    .compare{font-size:14.5px}
+    .compare th,.compare td{padding:12px 6px}
+    .compare td:nth-child(2),.compare td:nth-child(3),.compare th:nth-child(2),.compare th:nth-child(3){width:19%}
+    .panel{padding:22px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Duology home"><span class="wordmark">Du<em>ology</em></span><small>by SCVD</small></a>
+    <a class="btn small" href="https://scvd-app.github.io/duology/">Open the app</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Astrology + numerology</div>
+      <h1>Your stars and your numbers, <em>finally explained.</em></h1>
+      <p class="lede">Duology builds your real birth chart from the actual planet positions, works out your numerology, and puts the two side by side in plain English. No glyph-guessing, no jargon, and it always shows you the working.</p>
+      <div class="ctas">
+        <a class="btn" href="https://scvd-app.github.io/duology/">Build my free chart</a>
+        <a class="btn ghost" href="#free-vs-pro">What’s free and what’s Pro</a>
+      </div>
+      <p class="note">Takes about a minute. Runs in your browser, nothing to install. Add it to your home screen and it works like any other app. Your details stay on your phone.</p>
+    </div>
+    <div class="hero-phones" aria-hidden="true">
+      <div class="phone"><img src="/images/du-numbers-free.jpg" alt="" width="585" height="1200"></div>
+      <div class="phone"><img src="/images/du-chart-free.jpg" alt="" width="585" height="1200"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="reel">
+      <div class="eyebrow">Came over from a Reel or a Short?</div>
+      <h2 style="font-size:clamp(28px,3.6vw,38px)">Pick up right where the video left off.</h2>
+      <div class="reel-grid">
+        <div class="reel-card">
+          <b>Your star sign this month</b>
+          <p>The same reading as the Short, for all twelve signs. No birth details needed. Tap yours:</p>
+          <div class="signs">
+            <a href="https://scvd-app.github.io/duology/#sign=aries">Aries</a><a href="https://scvd-app.github.io/duology/#sign=taurus">Taurus</a><a href="https://scvd-app.github.io/duology/#sign=gemini">Gemini</a><a href="https://scvd-app.github.io/duology/#sign=cancer">Cancer</a><a href="https://scvd-app.github.io/duology/#sign=leo">Leo</a><a href="https://scvd-app.github.io/duology/#sign=virgo">Virgo</a><a href="https://scvd-app.github.io/duology/#sign=libra">Libra</a><a href="https://scvd-app.github.io/duology/#sign=scorpio">Scorpio</a><a href="https://scvd-app.github.io/duology/#sign=sagittarius">Sagittarius</a><a href="https://scvd-app.github.io/duology/#sign=capricorn">Capricorn</a><a href="https://scvd-app.github.io/duology/#sign=aquarius">Aquarius</a><a href="https://scvd-app.github.io/duology/#sign=pisces">Pisces</a>
+          </div>
+        </div>
+        <div class="reel-card">
+          <b>Your number this month</b>
+          <p>Did the sum in your head? Pop in your birthday and Duology does the maths for you, every month, with every step shown.</p>
+          <a href="https://scvd-app.github.io/duology/">Work mine out →</a>
+        </div>
+        <div class="reel-card">
+          <b>Your Birthday Number</b>
+          <p>It sits alongside your Life Path, Personal Year and name numbers, and Duology shows how they all fit together.</p>
+          <a href="https://scvd-app.github.io/duology/">See all my numbers →</a>
+        </div>
+        <div class="reel-card">
+          <b>Your Chinese animal</b>
+          <p>January or February baby? Duology checks the real Chinese New Year for your birth year, so you get the right animal and element.</p>
+          <a href="https://scvd-app.github.io/duology/">Check my animal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps, about a minute.</h2>
+    <div class="steps">
+      <div class="step"><h3>Pop in your birthday</h3><p>Your date, time and place of birth, plus your full birth name for the numbers. Don’t know your birth time? That’s fine. Duology works with what you’ve got and tells you what changes.</p></div>
+      <div class="step"><h3>See your chart and numbers</h3><p>Your birth chart wheel, your Big Three (Sun, Moon and Rising), your Life Path and your Chinese animal, each one explained in everyday words.</p></div>
+      <div class="step"><h3>Go as deep as you like</h3><p>Tap anything to see what it means and why astrologers or numerologists read it that way. When you want the lot, Pro opens up everything.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="walkthrough">
+  <div class="wrap">
+    <div class="tier-head">
+      <div>
+        <span class="tag free">Free</span>
+        <h2 style="margin-top:14px">What’s waiting for you, free</h2>
+        <p class="lede">No sign-up, no email, no card. This is yours from the first minute.</p>
+      </div>
+    </div>
+    <p class="scroll-hint">Swipe to see more →</p>
+    <div class="gallery">
+      <figure class="shot"><div class="phone"><img src="/images/du-start.jpg" alt="The Duology setup screen asking for your birth name, date, time and place" width="585" height="1200" loading="lazy"></div><figcaption><b>A gentle start</b><span>A few details, with every field explained. No account needed.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-chart-free.jpg" alt="A birth chart wheel with the Big Three listed underneath" width="585" height="1200" loading="lazy"></div><figcaption><b>Your real birth chart</b><span>Worked out from the actual planet positions when you were born, with your Big Three explained.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-chinese.jpg" alt="A Chinese zodiac card showing a Metal Horse with traits and best matches" width="585" height="1200" loading="lazy"></div><figcaption><b>Your Chinese animal</b><span>Animal, element, best matches and the clash, checked against the real New Year date.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-numbers-free.jpg" alt="Life Path number 5 explained, with the working shown" width="585" height="1200" loading="lazy"></div><figcaption><b>Your Life Path</b><span>The big number in numerology, explained, with the working so you can check it yourself.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-signs.jpg" alt="A grid of the twelve star signs with this month's reading" width="585" height="1200" loading="lazy"></div><figcaption><b>Every sign, every month</b><span>The general monthly reading for all twelve signs, plus 30 days of your own forecast.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="tier-head">
+      <div>
+        <span class="tag pro">Pro</span>
+        <h2 style="margin-top:14px">When you want the whole picture</h2>
+        <p class="lede">Pro unlocks every placement, every number and the full reading. It’s a one-off pass, never a subscription.</p>
+      </div>
+    </div>
+    <p class="scroll-hint">Swipe to see more →</p>
+    <div class="gallery">
+      <figure class="shot"><div class="phone"><img src="/images/du-placement.jpg" alt="Mars in Taurus explained, including what it means and why astrologers say it" width="585" height="1200" loading="lazy"></div><figcaption><b>Every placement, explained</b><span>All ten planets, your houses and the angles between them: what each means, and why.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-reading.jpg" alt="The Duology reading titled What your stars and numbers say about you, with a Save as PDF button" width="585" height="1200" loading="lazy"></div><figcaption><b>Your full reading</b><span>“What your stars and numbers say about you”, written for you, with a PDF to keep or share.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-forecast.jpg" alt="A personal forecast with today's Moon, Personal Year and upcoming planet events" width="585" height="1200" loading="lazy"></div><figcaption><b>Your personal forecast</b><span>The next 30 days, 90 days or 12 months, with the planets and your numbers side by side.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-numbers-pro.jpg" alt="Birthday Number and Expression number explained, with the working" width="585" height="1200" loading="lazy"></div><figcaption><b>All your numbers</b><span>Birthday, Personal Year and Month, Expression, Soul Urge and Personality, and how they fit together.</span></figcaption></figure>
+      <figure class="shot"><div class="phone"><img src="/images/du-family.jpg" alt="A list of saved charts including two people and a dog" width="585" height="1200" loading="lazy"></div><figcaption><b>The whole family, pets too</b><span>Up to ten charts for your partner, kids, mates and fur babies, each with their own reading.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="free-vs-pro">
+  <div class="wrap">
+    <div class="eyebrow">Free vs Pro</div>
+    <h2>Free to start. Pro when you’re ready.</h2>
+    <p class="lede">The free version is the real thing, not a teaser. Pro is for when you want every last detail.</p>
+    <table class="compare">
+      <thead><tr><th scope="col">What you get</th><th scope="col">Free</th><th scope="col">Pro</th></tr></thead>
+      <tbody>
+        <tr><td>Your birth chart wheel</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Sun, Moon and Rising, explained</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Every other planet, house and angle, explained</td><td class="no">–</td><td class="yes">✓</td></tr>
+        <tr><td>Your star sign this month<small>All twelve signs, no birth details needed</small></td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Your personal forecast</td><td class="part">30 days</td><td class="yes">30 days, 90 days, 12 months</td></tr>
+        <tr><td>Life Path number, explained</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Birthday, Personal Year and Month, and name numbers<small>Expression, Soul Urge, Personality</small></td><td class="part">See them</td><td class="yes">Explained, with the working</td></tr>
+        <tr><td>Your Chinese animal and element</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>“What your stars and numbers say about you”</td><td class="part">The short version</td><td class="yes">Full reading + PDF</td></tr>
+        <tr><td>Charts for family, friends and pets</td><td class="part">1 chart</td><td class="yes">Up to 10</td></tr>
+        <tr><td>Learn: plain-English lessons</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Backup and restore your charts</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Choice of house system</td><td class="no">–</td><td class="yes">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Duology Pro</div>
+    <h2>Pay once. Nothing renews.</h2>
+    <p class="lede">Pick a pass, unlock everything. When a pass ends, it simply stops, and you keep using the free version.</p>
+    <div class="plans">
+      <div class="plan"><div class="len">30 days</div><div class="name">New Moon</div><div class="price">US$3.99</div><p>Try the lot for a month.</p></div>
+      <div class="plan best"><span class="badge">Best value</span><div class="len">12 months</div><div class="name">Full Circle</div><div class="price">US$24.99<small>≈ US$2.08 a month</small></div><p>A full trip around the Sun, with your forecast all year.</p></div>
+      <div class="plan"><div class="len">Lifetime</div><div class="name">Written in the Stars</div><div class="price">US$39.99</div><p>Pro for life. Pay once, done.</p></div>
+    </div>
+    <div class="fine">
+      <span>One-off payment, no subscription</span>
+      <span>No auto-renew, ever</span>
+      <span>Secure checkout by Stripe</span>
+      <span>Full refund within 14 days</span>
+    </div>
+    <div class="ctas" style="margin-top:30px">
+      <a class="btn" href="https://scvd-app.github.io/duology/">Start free</a>
+      <a class="btn ghost" href="https://scvd-app.github.io/duology/">Go Pro in the app</a>
+    </div>
+    <p class="note">Start free, then go Pro whenever you like from Settings → Duology Pro.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two">
+    <div class="panel">
+      <div class="eyebrow">Your information</div>
+      <h3>Your details stay on your phone</h3>
+      <p>Names, birthdays and charts are stored on your device, and all the maths runs right there too. There are no accounts and no database of users, so there’s nothing of yours on our side to lose, leak or sell.</p>
+      <p>The only things that leave your device: the place name you type (to find its coordinates), and if you buy Pro, the email you paid with (so we can resend your code if you lose it). No ads. No subscriptions.</p>
+      <p>Tip: use <b>Back up your charts</b> in Settings to save a copy you can load on a new phone.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Good questions</div>
+      <details><summary>I don’t know my birth time. Can I still use it?</summary><p>Yes. Your Sun sign, planets, numbers and Chinese animal don’t need a time. Your Rising sign and houses do, because they change every few minutes, so Duology leaves those out and tells you why. Find your time later (a birth certificate, or Mum’s memory)? Just edit your chart.</p></details>
+      <details><summary>Is this the real sky, or made-up stuff?</summary><p>The planet positions are calculated from real astronomy for your exact date, time and place. The meanings are the traditional readings astrologers and numerologists use, and Duology explains where each one comes from. It’s for reflection and entertainment, not predictions.</p></details>
+      <details><summary>Which numerology does it use?</summary><p>Pythagorean by default, with Chaldean one tap away. Master numbers 11, 22 and 33 are kept or reduced, your choice.</p></details>
+      <details><summary>Is Pro a subscription?</summary><p>No. Every pass is a one-off payment. The 30-day and 12-month passes simply stop when they end. Lifetime never ends.</p></details>
+      <details><summary>Can I use it on my phone and my laptop?</summary><p>Yes. Duology runs in any modern browser. Your Pro code works on any device: paste it into Settings → Have a code? To move your charts, use the backup file.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Two old systems. <em>One clear picture.</em></h2>
+    <p class="lede">Your chart and your numbers, explained like a mate would explain them. Have a look around. It costs nothing to start.</p>
+    <div class="ctas"><a class="btn" href="https://scvd-app.github.io/duology/">Build my free chart</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Follow Duology">
+      <a href="https://www.instagram.com/duologyexplained/">Instagram @duologyexplained</a>
+      <a href="https://www.youtube.com/@Duologyexplained">YouTube @Duologyexplained</a>
+      <a href="https://scvd.app/">More SCVD apps</a>
+    </nav>
+    <div>Built by SCVD on the Sunshine Coast · For reflection and entertainment</div>
+  </div>
+</footer>
+
+</body>
+</html>
