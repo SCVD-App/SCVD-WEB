@@ -392,6 +392,15 @@
   </div>
 </section>
 
+<section class="section" id="gift">
+  <div class="wrap">
+    <div class="eyebrow">New · gift cards</div>
+    <h2>Give the gift of <em style="color:var(--lav)">the stars</em></h2>
+    <p class="lede">90 days of Duology Pro, with a Christmas card and your own message. The 90 days only start when they unlock it. One-off US$9.99, no subscription, and you don’t need Pro to send one.</p>
+    <div class="ctas" style="margin-top:26px"><a class="btn" href="https://scvd-app.github.io/duology/gift.html">Send a gift card</a></div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap two">
     <div class="panel">
@@ -444,7 +453,8 @@
   var links = document.querySelectorAll('a[href^="' + APP + '"]');
   if (ref) {
     for (var i = 0; i < links.length; i++) {
-      var h = links[i].getAttribute('href'), at = h.indexOf('#'), base = at < 0 ? h : h.slice(0, at), hash = at < 0 ? '' : h.slice(at);
+      var h = links[i].getAttribute('href'); if (h.indexOf('gift.html') >= 0) continue;
+      var at = h.indexOf('#'), base = at < 0 ? h : h.slice(0, at), hash = at < 0 ? '' : h.slice(at);
       if (base.indexOf('?') < 0) links[i].setAttribute('href', base + '?ref=' + ref + hash);
     }
   }
@@ -458,7 +468,7 @@
     } catch (e) {}
   }
   send('land');
-  for (var j = 0; j < links.length; j++) links[j].addEventListener('click', function () { send('go'); });
+  for (var j = 0; j < links.length; j++) links[j].addEventListener('click', function () { send(this.getAttribute('href').indexOf('gift.html') >= 0 ? 'gift' : 'go'); });
 })();
 </script>
 
