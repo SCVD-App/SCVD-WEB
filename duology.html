@@ -398,7 +398,8 @@
       <div class="eyebrow">Your information</div>
       <h3>Your details stay on your phone</h3>
       <p>Names, birthdays and charts are stored on your device, and all the maths runs right there too. There are no accounts and no database of users, so there’s nothing of yours on our side to lose, leak or sell.</p>
-      <p>The only things that leave your device: the place name you type (to find its coordinates), and if you buy Pro, the email you paid with (so we can resend your code if you lose it). No ads. No subscriptions.</p>
+      <p>The only personal things that leave your device: the place name you type (to find its coordinates), and if you buy Pro, the email you paid with (so we can resend your code if you lose it). No ads. No subscriptions.</p>
+      <p>This page and the app also keep an anonymous head-count: how many people visit, which country, and which link they came from, so we can see what’s working and where people get stuck. No IDs, no cookies, nothing you type goes with it, and if your browser’s Do Not Track setting is on we skip it.</p>
       <p>Tip: use <b>Back up your charts</b> in Settings to save a copy you can load on a new phone.</p>
     </div>
     <div>
@@ -431,6 +432,35 @@
     <div>Built by SCVD on the Sunshine Coast · For reflection and entertainment</div>
   </div>
 </footer>
+
+
+<script>
+/* Anonymous head-count for Duology: adds one to a daily total. No IDs, no cookies, nothing you type. Skipped if Do Not Track is on.
+   Also carries a ?ref= tag (like ?ref=fb) through to the app links so we know which post a visitor came from. */
+(function () {
+  var API = 'https://duology-counter.emblen-scott.workers.dev', APP = 'https://scvd-app.github.io/duology/';
+  var ref = '';
+  try { ref = (new URLSearchParams(location.search).get('ref') || '').toLowerCase(); if (!/^[a-z]{2,10}$/.test(ref)) ref = ''; } catch (e) {}
+  var links = document.querySelectorAll('a[href^="' + APP + '"]');
+  if (ref) {
+    for (var i = 0; i < links.length; i++) {
+      var h = links[i].getAttribute('href'), at = h.indexOf('#'), base = at < 0 ? h : h.slice(0, at), hash = at < 0 ? '' : h.slice(at);
+      if (base.indexOf('?') < 0) links[i].setAttribute('href', base + '?ref=' + ref + hash);
+    }
+  }
+  function send(ev) {
+    try {
+      if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+      var day = new Date().toISOString().slice(0, 10), k = 'duology.lp.' + ev;
+      if (localStorage.getItem(k) === day) return;   // once a day per device
+      localStorage.setItem(k, day);
+      fetch(API + '/hit', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ e: ev, r: ref }), keepalive: true, credentials: 'omit' }).catch(function () {});
+    } catch (e) {}
+  }
+  send('land');
+  for (var j = 0; j < links.length; j++) links[j].addEventListener('click', function () { send('go'); });
+})();
+</script>
 
 </body>
 </html>
