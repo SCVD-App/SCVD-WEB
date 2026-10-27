@@ -8,7 +8,6 @@
 <meta name="description" content="Do you two click? Check how your stars and numbers line up, with a friend, partner, family member or workmate.">
 <meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14131A" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -82,7 +81,7 @@ h3{margin:0;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:u
 </head>
 <body>
 <div class="app">
-  <header class="top"><a class="brand" href="./?ref=cc">Du<em>ology</em></a><span class="screen-name">Click check</span></header>
+  <header class="top"><a class="brand" href="duology?ref=cc">Du<em>ology</em></a><span class="screen-name">Click check</span></header>
   <main id="main"></main>
 </div>
 <script>
@@ -572,7 +571,7 @@ function screenMake() {
       field('t-full', 'Full birth name <span class="small">(optional)</span>', st.them.full, 'text', 'maxlength="60"') + '</div>' +
     (st.err ? '<div class="err" role="alert">' + esc(st.err) + '</div>' : '') +
     '<button type="button" class="btn" data-act="go">Check if we click</button>' +
-    '<p class="small">Nothing you type here is saved or sent anywhere. For reflection and fun.</p></div>';
+    '<p class="small">Nothing you type here is saved or sent anywhere, unless you choose to share a link with someone. That link carries your first name and birth date, so only send it to people you trust with them. For reflection and fun.</p></div>';
 }
 function screenRecv() {
   var f = st.from, T = TYPES[f.type];
@@ -601,7 +600,7 @@ function screenResult() {
       '<button type="button" class="btn" data-act="shareimg">Share the picture</button>' +
       '<button type="button" class="btn-ghost" data-act="link">Make a link so ' + esc(r.b.name) + ' can check too</button>' +
       (st.link ? '<div class="note"><b>Heads up:</b> this link carries your first name and birth date inside it, so anyone who has it can see them. Only send it to people you’re happy to share that with.</div><textarea class="copybox" id="lk" readonly>' + esc(st.link) + '</textarea><button type="button" class="btn-ghost" data-act="copy">Copy the link</button>' : '') + '</div>' +
-    '<div class="card stack-s"><h2>Want the full picture?</h2><p style="margin:0;color:var(--ink2)">This is the quick version, from birth dates only. In Duology Pro you can save ' + esc(r.b.name) + ' as a chart and read every placement, house and aspect, with the why behind each.</p><a class="btn-ghost" style="display:flex;align-items:center;justify-content:center;text-decoration:none" href="./?ref=cc">Open Duology</a></div>' +
+    '<div class="card stack-s"><h2>Want the full picture?</h2><p style="margin:0;color:var(--ink2)">This is the quick version, from birth dates only. In Duology Pro you can save ' + esc(r.b.name) + ' as a chart and read every placement, house and aspect, with the why behind each.</p><a class="btn-ghost" style="display:flex;align-items:center;justify-content:center;text-decoration:none" href="duology?ref=cc">Open Duology</a></div>' +
     '<button type="button" class="link" data-act="again">Check another ' + esc(T.other) + '</button>' +
     '<p class="small">Built on traditional astrology, numerology and Chinese zodiac rules, with no birth times or places. For reflection and fun, not advice.</p></div>';
 }
