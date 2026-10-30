@@ -100,6 +100,14 @@
   .indev-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
   .indev-body { padding: 32px 40px; display: flex; flex-direction: column; justify-content: center; }
 
+  .card-status.new { background: #FFC94A; color: #0d0d0d; }
+  .card-click { grid-column: span 12; border: 0.5px solid rgba(255,201,74,0.45); background: linear-gradient(180deg, rgba(255,201,74,0.05), rgba(255,201,74,0) 60%); }
+  .card-click .indev-image { opacity: 1; width: 34%; }
+  .card-click .card-status { align-self: flex-start; }
+  .card-click .indev-image img { object-position: center top; }
+  .card-links { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; }
+  .card-link.alt { color: rgba(245,243,238,0.55); border-bottom-color: rgba(245,243,238,0.2); }
+
   /* ===== PHILOSOPHY ===== */
   .philosophy { max-width: 1000px; margin: 160px auto 0; padding: 0 96px; }
   .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 56px; }
@@ -121,7 +129,7 @@
     .card-flagship, .card-single-4, .card-single-6, .card-single-12 { grid-column: span 12; }
     .stacked-image { padding: 20px 20px 0; }
     .indev-layout { flex-direction: column; }
-    .indev-image { width: 100%; height: 220px; }
+    .indev-image, .card-click .indev-image { width: 100%; height: 300px; }
     .indev-body { padding: 24px; }
     .philosophy { padding: 0 24px; }
     .philosophy-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -254,6 +262,24 @@
         <div class="card-title small">Cult Connections</div>
         <div class="card-copy">Find the hidden connection between four tiles before the clock &mdash; and your streak &mdash; runs out. Music, film, TV, even a Seinfeld-only mode for the deep cuts. Built for people who actually know the answer.</div>
         <a class="card-link" href="https://scvd-app.github.io/Cult-Connections/">Open Cult Connections &rarr;</a>
+      </div>
+    </div>
+
+    <div class="card-click">
+      <div class="indev-layout">
+        <div class="indev-image">
+          <img src="images/click.jpg" alt="Duology Click: two friends, an Aries and a Virgo, meeting for a hug under the Duology Click logo">
+        </div>
+        <div class="indev-body">
+          <div class="card-eyebrow-num">FROM DUOLOGY &middot; TRY IT FIRST</div>
+          <span class="card-status new">NEW &middot; FREE</span>
+          <div class="card-title">Duology Click</div>
+          <div class="card-copy">Ever wondered why you click with your people? Pop in two birth dates and see where your stars and numbers flow, where they spark, and what the old traditions say about the pair of you. Friends, partners, family or workmates &mdash; no sign-up, nothing saved, and you can send the other person a link to see if they click back.</div>
+          <div class="card-links">
+            <a class="card-link" href="https://scvd.app/click">Check if you click &rarr;</a>
+            <a class="card-link alt" href="https://scvd-app.github.io/duology/">Meet Duology &rarr;</a>
+          </div>
+        </div>
       </div>
     </div>
 
