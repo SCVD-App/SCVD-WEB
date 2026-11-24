@@ -102,6 +102,19 @@
   .part{color:var(--ink2)}
   .no{color:var(--ink3)}
 
+  /* duology vs the rest */
+  .vs{width:100%;border-collapse:separate;border-spacing:10px;margin:18px -10px 0;width:calc(100% + 20px)}
+  .vs th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:12px 18px;text-align:left;border-radius:12px}
+  .vs th.rest{background:rgba(240,138,148,.12);color:#F08A94}
+  .vs th.us{background:rgba(111,217,160,.12);color:#6FD9A0}
+  .vs td{width:50%;background:var(--panel);border:.5px solid var(--line);border-radius:14px;padding:16px 18px;vertical-align:top;font-size:16.5px;line-height:1.45}
+  .vs td.rest{border-color:rgba(240,138,148,.28);color:var(--ink2)}
+  .vs td.us{border-color:rgba(111,217,160,.34)}
+  .vs td i{font-style:normal;font-weight:700;margin-right:10px}
+  .vs td.rest i{color:#F08A94}
+  .vs td.us i{color:#6FD9A0}
+  .vs-note{font-size:13.5px;color:var(--ink3);margin-top:8px}
+
   /* pricing */
   .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
   .plan{position:relative;background:var(--panel);border:.5px solid var(--line);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;gap:6px}
@@ -183,6 +196,10 @@
     .reel-grid{grid-template-columns:1fr}
     .brand small{display:none}
     .compare{font-size:14.5px}
+    .vs{border-spacing:6px;margin:14px -6px 0;width:calc(100% + 12px)}
+    .vs th{padding:10px 12px;font-size:11px}
+    .vs td{padding:12px;font-size:14.5px}
+    .vs td i{margin-right:6px}
     .compare th,.compare td{padding:12px 6px}
     .compare td:nth-child(2),.compare td:nth-child(3),.compare th:nth-child(2),.compare th:nth-child(3){width:19%}
     .panel{padding:22px}
@@ -341,6 +358,27 @@
   </div>
 </section>
 
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="eyebrow">Duology vs the rest</div>
+    <h2>Six things astrology apps get wrong. We fixed them.</h2>
+    <p class="lede">We’ve been stung by these too, so we fixed them.</p>
+    <table class="vs">
+      <thead><tr><th class="rest" scope="col">The rest</th><th class="us" scope="col">Duology</th></tr></thead>
+      <tbody>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Free trial, then a cancellation maze</td><td class="us"><i aria-hidden="true">✓</i>A truly free version. No credit card needed.</td></tr>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Pay monthly, forever, on auto-renew</td><td class="us"><i aria-hidden="true">✓</i>One-off passes from US$3.99. No subscription. 14-day refund.</td></tr>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Ads and upsells</td><td class="us"><i aria-hidden="true">✓</i>No ads. Ever.</td></tr>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Your data gets tracked</td><td class="us"><i aria-hidden="true">✓</i>Your birth details stay on your device.</td></tr>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Needs your exact birth time</td><td class="us"><i aria-hidden="true">✓</i>No birth time? We leave out what we can’t know.</td></tr>
+        <tr><td class="rest"><i aria-hidden="true">✕</i>Jargon, with no explanation</td><td class="us"><i aria-hidden="true">✓</i>The why behind every placement, in plain English.</td></tr>
+      </tbody>
+    </table>
+    <p class="vs-note">Common complaints about astrology apps, from public viewer feedback on TikTok.</p>
+    <div class="ctas" style="margin-top:26px"><a class="btn" href="https://scvd-app.github.io/duology/">Build my free chart</a><a class="btn ghost" href="#pricing">See the pricing</a></div>
+  </div>
+</section>
+
 <section class="section" id="free-vs-pro">
   <div class="wrap">
     <div class="eyebrow">Free vs Pro</div>
@@ -403,13 +441,13 @@
 
 <section class="section">
   <div class="wrap two">
-    <div class="panel">
+    <div class="panel" id="privacy">
       <div class="eyebrow">Your information</div>
       <h3>Your details stay on your phone</h3>
       <p>Names, birthdays and charts are stored on your device, and all the maths runs right there too. There are no accounts and no database of users, so there’s nothing of yours on our side to lose, leak or sell.</p>
       <p>The only personal things that leave your device: the place name you type (to find its coordinates), and if you buy Pro, the email you paid with (so we can resend your code if you lose it). No ads. No subscriptions.</p>
       <p>This page and the app also keep an anonymous head-count: how many people visit, which country, and which link they came from, so we can see what’s working and where people get stuck. No IDs, no cookies, nothing you type goes with it, and if your browser’s Do Not Track setting is on we skip it.</p>
-      <p>Tip: use <b>Back up your charts</b> in Settings to save a copy you can load on a new phone.</p>
+      <p><b>The trade-off:</b> clear your browser or switch phones and you’ll need to re-enter your details. A bit inconvenient, but you already know them, and we think it’s safer. Use <b>Back up your charts</b> in Settings to save a file you can load on a new phone and skip the typing.</p>
     </div>
     <div>
       <div class="eyebrow">Good questions</div>
